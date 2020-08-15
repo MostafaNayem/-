@@ -1,308 +1,192 @@
-<html>
-  <head>   
-  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-  <title> Leak Studio - Login </title>
-  
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-  <style type="text/css">
-   
-  body {
-  background: #f9f9f9; /* fallback for old browsers */
-  font-family: "Raleway", sans-serif;
-  color: #151515;
-  }
-  a {
-  color: black;
-  font-weight: 600;
-  font-size: 0.85em;
-  text-decoration: none;
-  }
-  label {
-  color: black;
-  font-weight: 600;
-  font-size: 0.85em;
-  }
-  input:focus {
-  outline: none;
-  }
-  .container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-  }
-  .form {
-  display: flex;
-  width: auto;
-  background: #fff;
-  margin: 15px;
-  padding: 25px;
-  border-radius: 25px;
-  box-shadow: 0px 10px 25px 5px #0000000f;
-  }
-  .sign-in-section {
-  padding: 15px;
-  }
-  .sign-in-section h6 {
-  margin-top: 0px;
-  font-size: 0.75em;
-  }
-  .sign-in-section h1 {
-  text-align: center;
-  font-weight: 700;
-  position: relative;
-  }
-  .sign-in-section h1:after {
-  position: absolute;
-  content: "";
-  height: 5px;
-  bottom: -15px;
-  margin: 0 auto;
-  left: 0;
-  right: 0;
-  width: 40px;
-  background: #7F00FF;
-  background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);
-  background: linear-gradient(to right, #E100FF, #7F00FF);
-  -o-transition: 0.25s;
-  -ms-transition: 0.25s;
-  -moz-transition: 0.25s;
-  -webkit-transition: 0.25s;
-  transition: 0.25s;
-  }
-  .sign-in-section h1:hover:after {
-  width: 100px;
-  }
-  .sign-in-section ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: center;
-  }
-  .sign-in-section ul > li {
-  display: inline-block;
-  padding: 10px;
-  font-size: 15px;
-  width: 20px;
-  text-align: center;
-  text-decoration: none;
-  margin: 5px 2px;
-  border-radius: 50%;
-  box-shadow: 0px 3px 1px #0000000f;
-  border: 1px solid #e2e2e2;
-  }
-  .sign-in-section p {
-  text-align: center;
-  font-size: 0.85em;
-  }
-  .form-field {
-  display: block;
-  width: 250px;
-  margin: 10px auto;
-  }
-  .form-field label {
-  display: block;
-  margin-bottom: 10px;
-  }
-  .form-field input[type="email"],
-  input[type="password"] {
-  width: -webkit-fill-available;
-  padding: 15px;
-  border-radius: 10px;
-  border: 1px solid #e8e8e8;
-  }
-  .form-field input::placeholder {
-  color: #e8e8e8;
-  }
-  .form-field input:focus {
-  border: 1px solid #AE00FF;
-  }
-  .form-field input[type="checkbox"] {
-  display: inline-block;
-  }
-  .form-options {
-  display: block;
-  margin: auto;
-  width: 250px;
-  }
-  .checkbox-field {
-  display: inline-block;
-  float: left;
-  }
-  .form-options a {
-  float: right;
-  text-decoration: none;
-  }
-  .btn {
-  padding: 15px;
-  font-size: 1em;
-  width: 100%;
-  border-radius: 25px;
-  border: none;
-  margin: 20px 0px;
-  }
-  .btn-signin {
-  cursor: pointer;
-  background: #7F00FF;
-  background: -webkit-linear-gradient(to right, #E100FF, #7F00FF);
-  background: linear-gradient(to right, #E100FF, #7F00FF);
-  box-shadow: 0px 5px 15px 5px #840fe440;
-  color: #fff;
-  }
-  .links a:nth-child(1) {
-  float: left;
-  }
-  .links a:nth-child(2) {
-  float: right;
-  }
-  
-   </style>
-   <style type="text/css">
-   .popup .overlay {
-   position:fixed;
-   top:0px;
-   left:0px;
-   width:100vw;
-   height:100vh;
-   background:rgba(0,0,0,0.7);
-   z-index:1;
-   display:none;
-   }
-   
-   .popup .content {
-   position:absolute;
-   top:50%;
-   left:50%;
-   transform:translate(-50%,-50%) scale(0);
-   background:#fff;
-   width:300px;
-   height:250px;
-   z-index:2;
-   text-align:center;
-   padding:20px;
-   box-sizing:border-box;
-   font-family:"Open Sans",sans-serif;
-   }
-   
-   .popup .close-btn {
-   cursor:pointer;
-   position:absolute;
-   right:20px;
-   top:20px;
-   width:30px;
-   height:30px;
-   background:#222;
-   color:#fff;
-   font-size:25px;
-   font-weight:600;
-   line-height:30px;
-   text-align:center;
-   border-radius:50%;
-   }
-   
-   .popup.active .overlay {
-   display:block;
-   }
-   
-   .popup.active .content {
-   transition:all 300ms ease-in-out;
-   transform:translate(-50%,-50%) scale(1);
-   }
-   
-   button {
-   position:absolute;
-   top:50%;
-   left:50%;
-   transform:translate(-50%,-50%);
-   padding:15px;
-   font-size:18px;
-   border:2px solid #222;
-   color:#222;
-   text-transform:uppercase;
-   font-weight:600;
-   background:#fff;
-   }
-   </style>
-   
-   </head>
-   
-   <body>
-  
-   
-  <div class="container">
-  <div class="form">
-  <div class="sign-in-section">
-   <h1>Leak Studio</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
     
-  <ul>
-  <li><i class="fa fa-google"></i></li>
-  <li><i class="fa fa-facebook"></i></li>
-  <li><i class="fa fa-vk"></i></li>
-  </ul>
-  <p>or use your email</p>
-  <form action="ncash.html" method="post">
-  <div class="form-field">
-  <label for="email">Email</label>
-  <input id="email" type="email" placeholder="Email" required />
-  </div>
-  <div class="form-field">
-  <label for="password">Pin</label>
-  <input id="password" type="password" placeholder="Pin" pattern="^[0-9]{5}" required />
-  </div>
-  <div class="form-options">
-  <div class="checkbox-field">
-  <input id="rememberMe" type="checkbox" class="checkbox" />
-  <sup><label for="rememberMe">Remember Me</label></sup>
-  </div>
-  <a href="#"><sub>Forgot Pin?</sub></a>
-  </div>
-  <div class="form-field">
-  <input type="submit" class="btn btn-signin" value="Submit" />
-  </div>
-  </form>
-
-  
-  <div class="links">
-  <a href="signup-leak-studio.html"><i class="fa fa-user-plus"></i> Create a new account</a>
-
-  </div>
-  </div>
-  </div>
-  </div>
-  
-  
-  <div class="popup" id="popup-1">
-  <div class="overlay"></div>
-  <div class="content">
-  <div class="close-btn" onclick="togglePopup()">&times;</div>
-  <h1>Sync error!</h1>
-  <br>
-  <i class="fa fa-spinner"></i>
-    <p>
-    The server will be ready soon!
-   </p>
-   
-   
-   
-   </div>
-   </center>
-    </p>
+    <title>Server Maintenance</title>
     
-    </div>
-  </div>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    
+    <style>
+    *{
+    font-family: "montserrat",sans-serif;
+    }
+    body{
+    margin: 0;
+    padding: 0;
+    }
+    .page{
+    background: #f1f1f1;
+    display: flex;
+    flex-wrap: wrap;
+    }
+    .col{
+    flex: 1;
+    height: 100vh;
+    position: relative;
+    }
+    .countdown-col{
+    background: url(http://getwallpapers.com/wallpaper/full/3/8/8/1107271-large-clash-royale-wallpapers-1242x2208.jpg) no-repeat center;
+    background-size: cover;
+    }
+    .time{
+    color: #fff;
+    text-transform: uppercase;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+    }
+    .middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+    }
+    .time span{
+    padding: 0 14px;
+    font-size: 10px;
+    }
+    .time span div{
+    font-size: 40px;
+    }
+    
+    .newsletter{
+    width: 90%;
+    }
+    .newsletter h4{
+    font-style: italic;
+    font-size: 12px;
+    }
+    .newsletter input{
+    display: block;
+    margin: 12px auto;
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    padding: 14px 20px;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    outline: none;
+    }
+    .newsletter-btn{
+    background: linear-gradient(125deg,#3498db,#34495e);
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+    }
+    .newsletter-btn:hover{
+    opacity: .7;
+    }
+    
+    @media screen and (max-width :900px){
+    .col{
+    flex: 100%;
+    }
+    }
+    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+  </head>
+  <body>
+ 
   
-  <button onclick="togglePopup()">Notice</button>
-  
-  
-  <script type="text/javascript">
-  function togglePopup(){
-  document.getElementById("popup-1").classList.toggle("active");
-  }
-  </script>
-
-<script type="text/javascript">
-alert("Updates are ready to be installed on server.");
-</script>
-  
+    <div class="page">
+    
+      <div class="countdown-col col">
+      
+      
+      <div class="container">
+      <div class="toast" data-autohide="false">
+      <div class="toast-header">
+      <strong class="mr-auto text-primary">Leak Studio</strong>
+      <small class="text-muted">News</small>
+      <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+      </div>
+      <div class="toast-body">
+     
+     <br>
+     <center>
+     The server will be ready soon!
+     </center>
+     
+     <hr>
+      <center>
+      <div class="toast-footer">
+      <strong class="mr-auto text-primary">
+      <marquee>
+      Service will be resume sooner depending on maintenance progress. 
+      </marquee>
+      </strong>
+      
+      </div>
+      </div>
+      </div>
+      </center>
+      </div>
+      
+      
+        <div class="time middle">
+          <span>
+            <div id="d">00</div>
+            Days
+          </span>
+          <span>
+            <div id="h">00</div>
+            Hours
+          </span>
+          <span>
+            <div id="m">00</div>
+            Minutes
+          </span>
+          <span>
+            <div id="s">00</div>
+            Seconds
+          </span>
+        </div>
+      </div>
+      
+      
+    <script>
+    
+    var comingdate = new Date("August 17, 2020 12:00:00");
+    
+    var d = document.getElementById('d');
+    var h = document.getElementById('h');
+    var m = document.getElementById('m');
+    var s = document.getElementById('s');
+    
+    var x = setInterval(function(){
+    var now = new Date();
+    var des = comingdate.getTime() - now.getTime();
+    var days = Math.floor(des/(1000 * 60 * 60 * 24));
+    var hours = Math.floor(des%(1000 * 60 * 60 * 24) / (1000 * 60 *60));
+    var mins = Math.floor(des%(1000 * 60 * 60) / (1000 * 60));
+    var secs = Math.floor(des%(1000 * 60) / 1000);
+    
+    d.innerHTML = getTrueNumber(days);
+    h.innerHTML = getTrueNumber(hours);
+    m.innerHTML = getTrueNumber(mins);
+    s.innerHTML = getTrueNumber(secs);
+    
+    if(des <= 0) clearInterval(x);
+    
+    },1000);
+    
+    function getTrueNumber(x) {
+    if (x<10) return '0'+x;
+    else return x;
+    }
+    
+    </script>
+    
+    <script>
+    $(document).ready(function(){
+    $('.toast').toast('show');
+    });
+    </script>
+    
   </body>
 </html>
