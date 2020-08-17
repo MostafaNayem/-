@@ -13,10 +13,9 @@
 <link rel="stylesheet" href="https://www.androidp1.com/engine/classes/min/index.php?f=/templates/andplus/css/main.min.css,/templates/andplus/css/engine.css,/templates/andplus/css/other.css,/templates/andplus/css/rating.css">
 <link rel="stylesheet" href="https://www.androidp1.com/engine/classes/min/index.php?f=/templates/andplus/css/topgames.css">
 
-
+<link rel="stylesheet" href="ls.css">
 
  
-  
 </head>
 <body>
 <div class="page-wrapper page-wrapper--home ">
@@ -70,9 +69,8 @@
 	              </ul>
 	              <div class="lang">
 		           
-<img src="https://cdn.countryflags.com/thumbs/bangladesh/flag-round-500.png" width="30" height="30">
 		            	
-<a href="#" class="lang__link lang__link--ban " alt="ban"></a>
+<a href="#" class="lang__link lang__link--rus " alt="rus"></a>
 
 <a href="#" class="lang__link lang__link--eng active" alt="eng"></a>
 
@@ -100,6 +98,77 @@
       </div>
 </header>
 <main class="page-content">
+
+
+<div class="slideshow-container">
+
+<div class="mySlides fade">
+  <div class="numbertext">2K+ Family</div>
+  <img src="ls-tnx.jpg" style="width:100%">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">Special Airdrop: 75 BDT</div>
+  <img src="ad1.jpg" style="width:100%">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">Free Elite Pass?</div>
+  <img src="ls-free-ep.jpg" style="width:100%">
+  <div class="text"></div>
+</div>
+
+<div class="mySlides fade">
+  <div class="numbertext">Version Update</div>
+  <img src="ls-ver-up.jpg" style="width:100%;">
+  <div class="text"></div>
+</div>
+
+
+<div class="mySlides fade">
+  <div class="numbertext">OB 24</div>
+  <img src="ad2.jpg" style="width:100%;">
+  <div class="text"></div>
+</div>
+
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  
+  
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 3000); // Change image every 3 seconds
+}
+</script>
+
+
 
 
 <!-- main-->
@@ -184,7 +253,7 @@
 </li>
 
 <li class="post-item">
-	<a href="#" class="post-item__link">
+	<a href="ls-pubg.html" class="post-item__link">
 		<div class="post-item__image"><img src="https://cdn1.codashop.com/S/content/mobile/images/product-tiles/pubgm_rps_tile.jpg" alt="Idle Eleven - Be a millionaire football tycoon MOD free purchases"></div>
 		<div class="post-item__content">
 			<div class="post-item__header">PUBG Mobile</div>
